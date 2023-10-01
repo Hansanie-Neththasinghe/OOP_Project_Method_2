@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<queries>
+	<query id="create_songs_table">
+		<![CDATA[
+			CREATE TABLE songs(
+				songId varchar(15) NOT NULL,
+				name varchar(25) NOT NULL,
+				artistName varchar(25) NOT NULL,
+				genre varchar(25) NOT NULL,
+				releasedDate varchar(25) NOT NULL,
+				lyricist varchar(25) NOT NULL,
+				producer varchar(25) NOT NULL,
+				description varchar(250) NOT NULL,
+				coverart varchar(250) NOT NULL,
+				songtrack varchar(250) NOT NULL,
+				PRIMARY KEY (songId)
+			);
+		]]>
+	</query>
+	
+	<query id="insert_song">
+		<![CDATA[
+			INSERT INTO songs(songId,name,artistName,genre,releasedDate,lyricist,producer,description,coverart,songtrack)
+			VALUES(?,?,?,?,?,?,?,?,?,?);
+		]]>
+	</query>
+	
+	<query id="song_ids">
+		<![CDATA[
+			SELECT songId FROM songs;
+		]]>
+	</query>
+	
+	<query id="all_songs">
+		<![CDATA[
+			SELECT * FROM songs;
+		]]>
+	</query>
+	
+	<query id="song_by_id">
+		<![CDATA[
+			SELECT * FROM songs
+			WHERE songId = ? ;
+		]]>
+	</query>
+	
+	<query id="update_song">
+		<![CDATA[
+			UPDATE songs
+			SET name = ?,artistName = ?,genre = ?,releasedDate = ?,lyricist = ?,producer = ?,description = ?,coverart = ?,songtrack = ?
+			WHERE songId = ? ;
+		]]>
+	</query>
+	
+	<query id="delete_song">
+		<![CDATA[
+			DELETE FROM songs
+			WHERE songId = ? ;
+		]]>
+	</query>
+	
+	
+	
+</queries>
